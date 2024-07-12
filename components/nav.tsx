@@ -132,7 +132,7 @@ export default function Nav({ children }: { children: ReactNode }) {
       },
       {
         name: "Embedded Wallets",
-        href: "/embedded",
+        href: "/dashboard/embedded",
         isActive: segments[0] == "embedded",
         icon: <WalletCards width={18} />,
       },
@@ -144,7 +144,7 @@ export default function Nav({ children }: { children: ReactNode }) {
       },
       {
         name: "API Keys",
-        href: "/api",
+        href: "/dashboard/api",
         isActive: segments[0] == "api",
         icon: <Key width={18} />,
       },

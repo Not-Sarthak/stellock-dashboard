@@ -7,32 +7,21 @@ import { Explore } from "@/components/customization-cards/explore";
 import { Export } from "@/components/customization-cards/export";
 import { Whitelabel } from "@/components/customization-cards/whitelabel";
 import Image from "next/image";
-import logo from "@/public/logo.svg";
-import {
-  FaGoogle,
-  FaDiscord,
-  FaTiktok,
-  FaApple
-} from "react-icons/fa";
-import {
-  Mail,
-  MessageSquare,
-  Twitter,
-  Github,
-  Linkedin,
-} from "lucide-react";
 
+import google from "@/public/socials/google.svg";
+import apple from "@/public/socials/apple.svg";
+import twitter from "@/public/socials/twitter.svg";
+import discord from "@/public/socials/discord.svg";
+import linkedin from "@/public/socials/linkedin.svg";
+import github from "@/public/socials/github.svg";
 
 type AuthOptions = {
-  email: boolean;
-  sms: boolean;
   google: boolean;
   apple: boolean;
   twitter: boolean;
   discord: boolean;
   github: boolean;
   linkedin: boolean;
-  tiktok: boolean;
 };
 
 type WalletOptions = {
@@ -40,15 +29,12 @@ type WalletOptions = {
 };
 
 const authIcons: Record<keyof AuthOptions, JSX.Element> = {
-  email: <Mail className="h-6 w-6" />,
-  sms: <MessageSquare className="h-6 w-6" />,
-  google: <FaGoogle className="h-6 w-6" />,
-  apple: <FaApple className="h-6 w-6" />,
-  twitter: <Twitter className="h-6 w-6" />,
-  discord: <FaDiscord className="h-6 w-6" />,
-  github: <Github className="h-6 w-6" />,
-  linkedin: <Linkedin className="h-6 w-6" />,
-  tiktok: <FaTiktok className="h-6 w-6" />,
+  google: <Image src={google} className="h-6 w-6" alt="Google" width={6} height={6}/>,
+  apple: <Image src={apple} className="h-6 w-6" alt="Apple" width={6} height={6}/>,
+  twitter: <Image src={twitter} className="h-6 w-6" alt="Twitter" width={6} height={6}/>,
+  discord: <Image src={discord} className="h-6 w-6" alt="Discord" width={6} height={6}/>,
+  github: <Image src={github} className="h-6 w-6" alt="Github" width={6} height={6}/>,
+  linkedin: <Image src={linkedin} className="h-6 w-6" alt="LinkedIn" width={6} height={6}/>,
 };
 
 export default function Overview() {
@@ -61,15 +47,12 @@ export default function Overview() {
   });
 
   const [authOptions, setAuthOptions] = useState<AuthOptions>({
-    email: false,
-    sms: false,
-    google: false,
+    google: true,
     apple: false,
     twitter: false,
     discord: false,
-    github: false,
+    github: true,
     linkedin: false,
-    tiktok: false,
   });
 
   const [walletOptions, setWalletOptions] = useState<WalletOptions>({
@@ -97,52 +80,123 @@ export default function Overview() {
     }));
   };
 
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle login logic here
+  };
+
+  const handleSocialLogin = (provider: string) => {
+    // Handle social login logic here
+  };
+
   return (
-    <div className="flex h-screen max-w-screen-2xl flex-col space-y-12 p-8 text-white">
+    <div
+      className="flex h-screen max-w-screen-2xl flex-col space-y-12 p-8 text-white"
+      style={{ backgroundColor: selectedColors.background }}
+    >
       <div className="flex flex-col space-y-6">
         <h1 className="font-cal text-3xl font-bold dark:text-white">
           Customization
         </h1>
       </div>
       <div className="flex h-[90vh] w-full justify-between rounded-3xl border-[2px] border-[#636365]">
-        <div className="w-3/4 border-r-[2px] border-[#636365] font-cal font-bold dark:text-white">
+        <div className="w-3/4 border-r-[2px] border-[#636365] font-cal dark:text-white">
           <div className="z-10 h-full w-full rounded-l-3xl bg-black bg-[radial-gradient(#646368_1px,transparent_1px)] [background-size:24px_24px]">
             <div className="flex w-full justify-center gap-8 py-20">
-              <div className="flex w-[20vw] cursor-pointer flex-col gap-8 rounded-lg border-[1px] border-[#636365] bg-[#232325] p-4">
-                <div className="flex justify-center">Log in or sign up</div>
-                <div className="flex items-center justify-center gap-4">
-                  <Image src={logo} alt="logo" width={80} height={80} />
-                  <div className="text-4xl">Stellock</div>
+              <div className="flex w-[20vw] cursor-pointer flex-col gap-8 rounded-lg border-[1px] border-[#636365] bg-white p-4 text-black">
+                <div className="mt-4 flex justify-center font-semibold">
+                  Log in or sign up
                 </div>
-                <div className="mt-4 flex flex-col gap-2">
+                <div className="flex flex-col gap-2">
                   {showAuth && (
                     <>
-                      <div className="grid grid-cols-2 gap-2">
-                        {Object.keys(authOptions).map(
-                          (option) =>
-                            authOptions[option as keyof AuthOptions] && (
-                              <div
-                                key={option}
-                                className="flex items-center rounded-md border px-4 py-2"
-                              >
-                                <div className="flex items-center justify-center gap-2">
+                      <form onSubmit={handleLogin}>
+                        <div className="mb-4">
+                          <label
+                            className="mb-2 block text-sm font-medium text-gray-700"
+                            htmlFor="email"
+                          >
+                            Email
+                          </label>
+                          <input
+                            type="email"
+                            id="email"
+                            className="w-full rounded-lg border px-3 py-2"
+                            placeholder="sarthak@example.com"
+                            required
+                          />
+                        </div>
+                        <div className="mb-4">
+                          <label
+                            className="mb-2 block text-sm font-medium text-gray-700"
+                            htmlFor="password"
+                          >
+                            Password
+                          </label>
+                          <input
+                            type="password"
+                            id="password"
+                            className="w-full rounded-lg border px-3 py-2"
+                            placeholder="******"
+                            required
+                          />
+                        </div>
+                        <div className="mb-4 flex items-center justify-between">
+                          <a
+                            href="#"
+                            className="text-sm text-blue-600 hover:underline"
+                          >
+                            Forgot password?
+                          </a>
+                        </div>
+                        <button
+                          type="submit"
+                          className="w-full rounded-md bg-[#0f172a] px-4 py-2 text-white"
+                          style={{
+                            backgroundColor: selectedColors.accent,
+                            color: "white",
+                          }}
+                        >
+                          Login
+                        </button>
+                      </form>
+                      <div className="my-4 flex items-center justify-center">
+                        <div className="mr-3 flex-grow border-t border-gray-300"></div>
+                        <span className="text-gray-500">OR</span>
+                        <div className="ml-3 flex-grow border-t border-gray-300"></div>
+                      </div>
+                      <div className="flex w-full flex-wrap items-center justify-center">
+                        <div className="flex flex-wrap items-center gap-4">
+                          {Object.keys(authOptions).map(
+                            (option) =>
+                              authOptions[option as keyof AuthOptions] && (
+                                <button
+                                  key={option}
+                                  onClick={() => handleSocialLogin(option)}
+                                  className="flex h-10 w-10 items-center justify-center rounded-full border-[1px] border-black bg-white text-white"
+                                >
                                   {authIcons[option as keyof AuthOptions]}
-                                  {option.charAt(0).toUpperCase() +
-                                    option.slice(1)}
-                                </div>
-                              </div>
-                            ),
-                        )}
+                                </button>
+                              ),
+                          )}
+                        </div>
                       </div>
                     </>
                   )}
                   {showWallets && walletOptions.external && (
-                    <div className="flex items-center justify-between rounded-md border-[1px] border-white/60 px-4 py-2">
-                      <div className="flex items-center gap-2">
-                        <WalletCardsIcon />
-                        Continue with a wallet
+                    <>
+                      <div className="my-4 flex items-center justify-center">
+                        <div className="mr-3 flex-grow border-t border-gray-300"></div>
+                        <span className="text-gray-500">OR</span>
+                        <div className="ml-3 flex-grow border-t border-gray-300"></div>
                       </div>
-                    </div>
+                      <div className="flex items-center justify-center rounded-md bg-[#0f172a] px-4 py-2 text-white">
+                        <div className="flex items-center gap-2">
+                          <WalletCardsIcon />
+                          Continue with a wallet
+                        </div>
+                      </div>
+                    </>
                   )}
                 </div>
               </div>
@@ -189,20 +243,19 @@ export default function Overview() {
             {Object.keys(authOptions).map((option) => (
               <label
                 key={option}
-                className="flex items-center rounded-md border-[1px] border-white/60 p-2"
+                className="flex items-center justify-center gap-4 rounded-md p-2"
               >
                 <input
                   type="checkbox"
-                  className="mr-2 bg-transparent checked:border-[1px] checked:border-transparent checked:bg-transparent checked:text-black"
+                  className="bg-transparent checked:border-[1px] checked:border-transparent checked:bg-transparent checked:text-black"
                   checked={authOptions[option as keyof AuthOptions]}
                   onChange={() =>
                     handleAuthOptionChange(option as keyof AuthOptions)
                   }
                   disabled={!showAuth}
                 />
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 rounded-full bg-white p-1">
                   {authIcons[option as keyof AuthOptions]}
-                  {option.charAt(0).toUpperCase() + option.slice(1)}
                 </div>
               </label>
             ))}
@@ -234,11 +287,11 @@ export default function Overview() {
             {Object.keys(walletOptions).map((option) => (
               <label
                 key={option}
-                className="flex items-center rounded-md border-[1px] border-white/60 p-2"
+                className="flex gap-4 w-full items-center justify-center rounded-md p-2"
               >
                 <input
                   type="checkbox"
-                  className="mr-2 bg-transparent checked:border-[1px] checked:border-transparent checked:bg-transparent checked:text-black"
+                  className="bg-transparent checked:border-[1px] checked:border-transparent checked:bg-transparent checked:text-black"
                   checked={walletOptions[option as keyof WalletOptions]}
                   onChange={() =>
                     handleWalletOptionChange(option as keyof WalletOptions)
