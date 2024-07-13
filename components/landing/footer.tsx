@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { FaSlack, FaGithub, FaTwitter } from "react-icons/fa";
 
@@ -7,7 +8,7 @@ const Footer: React.FC = () => {
       <div className="mx-auto flex max-w-[100rem] flex-col items-center justify-between md:flex-row">
         <div className="flex flex-col items-center md:items-start">
           <div className="flex items-center space-x-2">
-            <img src="/black-logo.svg" alt="Privy" className="h-6" />
+            <Image src="/black-logo.svg" alt="Privy" className="h-6" />
             <span className="text-lg font-semibold text-gray-700">Stellock</span>
           </div>
           <p className="mt-2 text-sm text-gray-500">© 2024</p>

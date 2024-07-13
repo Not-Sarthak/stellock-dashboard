@@ -261,10 +261,10 @@ const Users: React.FC = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user:any) => (
+                {users.map((user: any) => (
                   <TableRow
                     key={user.id}
-                    className="border-b my-2 border-gray-600 hover:bg-black"
+                    className="my-2 border-b border-gray-600 hover:bg-black"
                   >
                     <TableCell className="font-medium text-white">
                       {user.id}
@@ -286,8 +286,8 @@ const Users: React.FC = () => {
                 No results found
               </h3>
               <p className="mt-2 text-center text-gray-400">
-                We couldn't find the user you searched for. Please try again
-                with another name or email.
+                We couldn&apos;t find the user you searched for. Please try
+                again with another name or email.
               </p>
             </div>
           )}

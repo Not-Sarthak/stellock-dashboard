@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 // import featureOne from ""
 
 const FeatureSection: React.FC = () => {
@@ -36,7 +37,7 @@ const FeatureSection: React.FC = () => {
         <div className="grid grid-cols-1 gap-72 md:grid-cols-2">
           <div className="flex w-80 items-center">
             <div className="flex-shrink-0">
-              <img
+              <Image
                 className="h-12 w-12"
                 src="auth_icon.png"
                 alt="Auth for all"
@@ -54,7 +55,7 @@ const FeatureSection: React.FC = () => {
           </div>
           <div className="flex w-80 items-center">
             <div className="flex-shrink-0">
-              <img
+              <Image
                 className="h-12 w-12"
                 src="connectors_icon.png"
                 alt="Reliable connectors"
