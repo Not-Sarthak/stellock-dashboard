@@ -94,15 +94,17 @@ export default function Overview() {
       className="flex h-screen max-w-screen-2xl flex-col space-y-12 p-8 text-white"
       style={{ backgroundColor: selectedColors.background }}
     >
-      <div className="flex flex-col space-y-6">
+      <div className="flex flex-col">
         <h1 className="font-cal text-3xl font-bold dark:text-white">
           Customization
         </h1>
       </div>
       <div className="flex h-[90vh] w-full justify-between rounded-3xl border-[2px] border-[#636365]">
         <div className="w-3/4 border-r-[2px] border-[#636365] font-cal dark:text-white">
-          <div className="z-10 h-full w-full rounded-l-3xl bg-black bg-[radial-gradient(#646368_1px,transparent_1px)] [background-size:24px_24px]">
-            <div className="flex w-full justify-center gap-8 py-20">
+          {/* bg-[radial-gradient(#646368_1px,transparent_1px)] */}
+          {/* [background-size:24px_24px] */}
+          <div className="z-10 relative h-full w-full rounded-l-3xl bg-black">
+            <div className="flex w-full justify-center gap-8 pt-20">
               <div className="flex w-[20vw] cursor-pointer flex-col gap-8 rounded-lg border-[1px] border-[#636365] bg-white p-4 text-black">
                 <div className="mt-4 flex justify-center font-semibold">
                   Log in or sign up
@@ -200,11 +202,11 @@ export default function Overview() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col gap-6">
-                <Explore />
-                <Export />
-                <Whitelabel />
-              </div>
+            </div>
+            <div className="absolute flex gap-2 items-center bottom-4 right-4">
+              <Explore />
+              <Export />
+              <Whitelabel />
             </div>
           </div>
         </div>
@@ -239,11 +241,11 @@ export default function Overview() {
               </div>
             </label>
           </div>
-          <div className="mt-4 grid grid-cols-2 items-center gap-2">
+          <div className="mt-4 grid grid-cols-2 gap-2">
             {Object.keys(authOptions).map((option) => (
               <label
                 key={option}
-                className="flex items-center justify-center gap-4 rounded-md p-2"
+                className="flex items-center gap-4 rounded-md p-2"
               >
                 <input
                   type="checkbox"
@@ -287,7 +289,7 @@ export default function Overview() {
             {Object.keys(walletOptions).map((option) => (
               <label
                 key={option}
-                className="flex gap-4 w-full items-center justify-center rounded-md p-2"
+                className="flex w-full items-center gap-4 rounded-md"
               >
                 <input
                   type="checkbox"

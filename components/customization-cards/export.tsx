@@ -1,29 +1,29 @@
-import { ClipboardCheckIcon, DownloadIcon } from "lucide-react";
-import React from "react";
+"use client";
+import { ClipboardCheckIcon } from "lucide-react";
+import React, { useState } from "react";
 
 export const Export: React.FC = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   return (
-    <div className="relative w-80 rounded-lg p-[1px] cursor-pointer">
-      <div className="animate-gradient absolute inset-0 rounded-lg bg-white/60"></div>
-      <div className="relative z-10 rounded-lg bg-[#232325] p-4 font-normal text-white shadow-md transition-shadow duration-200 hover:shadow-lg">
-        <div className="flex items-center space-x-2">
-          <div className="flex flex-col">
-            <h2 className="flex items-center gap-2 font-cal text-sm">
-              <DownloadIcon />
-              Export this configuration
-            </h2>
-            <p className="text-sm text-white/60 mt-3">
-              Stellock's components can be customized client-side, so you can
-              easily reuse this theme in your application.
-            </p>
-          </div>
-        </div>
-        <button className="mt-4 flex items-center space-x-1 rounded-lg border-[1px] border-white/50 p-1 text-sm hover:bg-[#000000]/40">
+    <div className="relative cursor-pointer rounded-lg p-1">
+      <div className="relative">
+        <button
+          className="mt-4 flex items-center space-x-1 rounded-lg border border-white/50 p-1 text-sm hover:bg-[#000000]/40"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
+        >
           <span>Copy to Clipboard</span>
           <span>
-            <ClipboardCheckIcon className="w-4 h-4" />
+            <ClipboardCheckIcon className="h-4 w-4" />
           </span>
         </button>
+        {showTooltip && (
+          <div className="absolute left-1/2 top-[calc(-100%-50px)] w-64 -translate-x-1/2 transform rounded-md bg-white px-2 py-1 text-center text-black opacity-100">
+            This will copy the config file you require for your Stellock
+            Integration
+          </div>
+        )}
       </div>
     </div>
   );

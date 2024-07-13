@@ -1,5 +1,4 @@
 const { fontFamily } = require("tailwindcss/defaultTheme");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -112,6 +111,7 @@ module.exports = {
         cal: ["var(--font-cal)", ...fontFamily.sans],
         title: ["var(--font-title)", ...fontFamily.sans],
         mono: ["Consolas", ...fontFamily.mono],
+        jakarta: ['"Plus Jakarta Sans"', "sans-serif"],
       },
       typography: {
         DEFAULT: {
@@ -145,6 +145,7 @@ module.exports = {
       },
       animation: {
         wiggle: "wiggle 0.8s both",
+        fadeInScaleUp: "fadeInScaleUp 0.6s ease-out",
       },
     },
   },

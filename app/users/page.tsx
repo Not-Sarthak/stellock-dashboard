@@ -51,7 +51,7 @@ const Users: React.FC = () => {
   const users = useMemo(
     () =>
       userData
-        .filter((user) => {
+        .filter((user:any) => {
           const searchValue = search.toLowerCase();
           return (
             user.name.toLowerCase().includes(searchValue) ||
@@ -150,7 +150,7 @@ const Users: React.FC = () => {
             />
           </div>
           {users.length > 0 ? (
-            <Table className="w-full text-left text-gray-400">
+            <Table className="w-full rounded-xl text-left text-gray-400">
               <TableHeader>
                 <TableRow>
                   <TableHead
@@ -261,10 +261,10 @@ const Users: React.FC = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {users.map((user) => (
+                {users.map((user:any) => (
                   <TableRow
                     key={user.id}
-                    className="border-b border-gray-600 hover:bg-black"
+                    className="border-b my-2 border-gray-600 hover:bg-black"
                   >
                     <TableCell className="font-medium text-white">
                       {user.id}
