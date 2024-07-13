@@ -15,10 +15,12 @@ const MainContent: React.FC = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button className="rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 px-6 py-3 font-semibold text-white hover:from-blue-500 hover:to-blue-700">
-          Go to Github
+          <a href="https://github.com/Stellock/stellock-dashboard">
+            Go to Github
+          </a>
         </button>
-        <button className="rounded-lg bg-gray-200 hover:bg-gray-300 px-4 py-2 text-black flex items-center gap-2">
-          <div className="bg-green-400 h-2 w-2 rounded-full" />
+        <button className="flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-2 text-black hover:bg-gray-300">
+          <div className="h-2 w-2 rounded-full bg-green-400" />
           View Live Demo
         </button>
       </div>

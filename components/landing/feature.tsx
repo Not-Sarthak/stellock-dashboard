@@ -37,11 +37,11 @@ const FeatureSection: React.FC = () => {
         <div className="grid grid-cols-1 gap-72 md:grid-cols-2">
           <div className="flex w-80 items-center">
             <div className="flex-shrink-0">
-              <Image
+              {/* <Image
                 className="h-12 w-12"
                 src="auth_icon.png"
                 alt="Auth for all"
-              />
+              /> */}
             </div>
             <div className="ml-4">
               <h4 className="text-xl font-medium leading-6 text-black">
@@ -55,11 +55,11 @@ const FeatureSection: React.FC = () => {
           </div>
           <div className="flex w-80 items-center">
             <div className="flex-shrink-0">
-              <Image
+              {/* <Image
                 className="h-12 w-12"
                 src="connectors_icon.png"
                 alt="Reliable connectors"
-              />
+              /> */}
             </div>
             <div className="ml-4">
               <h4 className="text-xl font-medium leading-6 text-black">

@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import darkLogo from "@/public/black-logo.svg"
 
 const title =
-  "Stellock";
+  "Dashboard | Stellock";
 const description =""
 const image = "/public/black-logo.svg";
 
